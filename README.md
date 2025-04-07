@@ -46,8 +46,8 @@ shl-assessment-recommender/
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/shl-assessment-recommender.git
-   cd shl-assessment-recommender
+   git clone https://github.com/anishks07/SHL---Assessment-Recommendation-System.git
+   
    ```
 
 2. Install backend dependencies:
