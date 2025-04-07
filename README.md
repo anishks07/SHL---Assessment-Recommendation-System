@@ -1,133 +1,74 @@
 # SHL Assessment Recommendation System
 
-An AI-powered web application that recommends SHL assessments based on job descriptions or natural language queries.
-
-## Live Demo
-
-- **Frontend**: [https://shl-assessment-recommendation-system.vercel.app](https://shl-assessment-recommendation-system.vercel.app)
-- **API Endpoint**: [https://shl-assessment-recommendation-system.vercel.app/api/recommend](https://shl-assessment-recommendation-system.vercel.app/api/recommend)
-
 ## Overview
-
-The SHL Assessment Recommendation System helps hiring managers find the right assessments for their job roles. Using Google's Gemini API, the system analyzes natural language queries or job descriptions and recommends the most relevant SHL assessments.
+This project implements an intelligent recommendation system for SHL assessments, designed to simplify the process of finding relevant assessments based on natural language queries or job descriptions.
 
 ## Features
-
-- Natural language query input
-- Job description URL input
-- Direct job description text input
-- Time limit filtering
-- Up to 10 relevant assessment recommendations
-- Detailed assessment information display:
-  - Assessment name and URL
+- Takes a natural language query or job description URL.
+- Recommends up to 10 relevant individual test solutions.
+- Each recommendation includes:
+  - Assessment name and URL (linked to SHL’s catalog)
   - Remote Testing Support (Yes/No)
   - Adaptive/IRT Support (Yes/No)
-  - Duration
-  - Test type
+  - Duration and Test type
 
-## Project Structure
+## Technologies Used
+- **Node.js**: Backend server
+- **Express**: Web framework for Node.js
+- **TensorFlow.js**: For generating embeddings
+- **SQLite**: For vector storage
+- **Gemini API**: For natural language processing
+- **Axios**: For making HTTP requests
 
-```
-shl-assessment-recommender/
-├── frontend/                     # Frontend web application
-│   ├── index.html                # Main HTML structure
-│   ├── styles.css                # CSS styling
-│   └── app.js                    # Frontend JavaScript logic
-└── backend/                      # Backend API server
-    ├── server.js                 # Main Express server file
-    ├── package.json              # Node.js dependencies
-    └── data/                     # Data storage
-        └── assessments.json      # Structured assessment data
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- npm (v8 or higher)
-
-### Installation
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/anishks07/SHL---Assessment-Recommendation-System.git
-   
+## Setup Instructions
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
    ```
 
-2. Install backend dependencies:
-   ```
-   cd backend
+2. **Install dependencies**:
+   ```bash
    npm install
    ```
 
-### Running the Application
+3. **Set up environment variables**:
+   - Create a `.env` file based on the `.env.example` file.
+   - Set the `GEMINI_API_KEY` and other necessary keys.
 
-1. Start the backend server:
+4. **Generate embeddings**:
+   ```bash
+   npm run init-free-embeddings
    ```
-   cd backend
+
+5. **Run the server**:
+   ```bash
    npm run dev
    ```
-   The server will run on http://localhost:3000
 
-2. Open the frontend:
-   - Simply open the `frontend/index.html` file in your browser
-   - Or serve it using a simple HTTP server:
-     ```
-     cd frontend
-     npx http-server
-     ```
-     Then open http://localhost:8080 in your browser
+6. **Access the API**:
+   - The server will run on `http://localhost:3000`.
+   - Use the `/recommend` endpoint to get recommendations.
 
-## API Documentation
+## Manual Deployment
+To deploy the application manually:
+1. Ensure all dependencies are installed.
+2. Set up the environment variables as described above.
+3. Run the server using `npm run dev`.
+4. Access the application through your browser or API client.
 
-For detailed API documentation, see [API Docs](docs/api/api-docs.md).
+## Evaluation Criteria
+The solution will be evaluated based on:
+- **Approach**: How the data is crawled, represented, and searched.
+- **Accuracy**: Measured using Mean Recall@3 and MAP@3.
+- **Demo Quality**: Quality of the end-to-end demo.
 
-### API Endpoints
+## Testing Queries
+You can test the application with the following queries:
+- "I am hiring for Java developers who can also collaborate effectively with my business teams. Looking for an assessment(s) that can be completed in 40 minutes."
+- "Looking to hire mid-level professionals who are proficient in Python, SQL and Java Script. Need an assessment package that can test all skills with max duration of 60 minutes."
+- "Here is a JD text, can you recommend some assessment that can help me screen applications. Time limit is less than 30 minutes."
+- "I am hiring for an analyst and want applications to screen using Cognitive and personality tests, what options are available within 45 mins."
 
-#### Vercel Deployment
-```
-https://shl-assessment-recommendation-system.vercel.app/api/recommend
-```
-
-#### Alternative Render Deployment
-```
-https://shl-recommender-api.onrender.com/api/recommend
-```
-
-Both endpoints accept POST requests with JSON payloads containing queries or job descriptions and return relevant SHL assessment recommendations.
-
-## Implementation Details
-
-### Frontend
-
-- Pure HTML, CSS, and JavaScript (no frameworks)
-- Responsive design with modern UI elements
-- Interactive form with real-time validation
-- AI badge indicating AI-powered recommendations
-
-### Backend
-
-- Node.js with Express
-- Google Gemini API integration for NLP
-- Keyword-based fallback mechanism
-- Optimized for evaluation metrics
-
-## Evaluation Metrics
-
-The system is evaluated using:
-
-1. **Mean Recall@3**: Measures how many relevant assessments are in the top 3 results
-2. **MAP@3**: Measures both relevance and ranking quality
-
-## Future Improvements
-
-- Implement more sophisticated NLP techniques for better matching
-- Add user feedback loop to improve recommendations
-- Integrate with SHL's API for real-time assessment data
-- Add authentication for personalized recommendations
-- Implement caching for frequent queries
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Conclusion
+This project aims to provide a streamlined solution for hiring managers to find the right assessments efficiently. The use of free technologies ensures accessibility and cost-effectiveness.

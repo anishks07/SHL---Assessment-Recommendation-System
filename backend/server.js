@@ -4,6 +4,10 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import axios from 'axios';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 // Get current directory
 const __filename = fileURLToPath(import.meta.url);
@@ -31,17 +35,33 @@ app.get('/', (req, res) => {
   });
 });
 
-// Import Gemini service
+// Import Gemini service (always required)
 import GeminiService from './services/geminiService.mjs';
 
-// Initialize Gemini service with API key from environment variables
+// Import RAG factory (doesn't import the actual RAG services until needed)
+import { createRagService } from './services/rag/ragFactory.js';
+
+// Initialize environment variables
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+// Check for required API keys
 if (!GEMINI_API_KEY) {
   console.error("FATAL ERROR: GEMINI_API_KEY environment variable is not set.");
-  // Optionally exit or handle the absence of the key gracefully
-  // For now, we'll let the GeminiService handle the potential undefined key
 }
+
+// Initialize services
 const geminiService = new GeminiService(GEMINI_API_KEY);
+let ragService = null;
+
+// Initialize RAG service asynchronously
+(async () => {
+  try {
+    ragService = await createRagService(GEMINI_API_KEY);
+  } catch (error) {
+    console.error("Error initializing RAG service:", error);
+    console.log("Continuing without RAG service. Will use Gemini API and keyword fallback only.");
+  }
+})();
 
 // Recommendation endpoint
 app.post('/recommend', async (req, res) => {
@@ -100,32 +120,58 @@ app.post('/recommend', async (req, res) => {
       });
     }
     
-    // Use Gemini API for advanced recommendations if text is long enough
     let recommendations = [];
+    let method = 'keyword';
     
-    try {
-      if (inputText.length > 20) { // Only use Gemini for substantial queries
-        console.log('Using Gemini API for recommendations...');
+    // Try RAG approach first if available
+    if (ragService) {
+      try {
+        console.log('Using RAG approach for recommendations...');
+        recommendations = await ragService.getRecommendations(inputText, parsedTimeLimit, 10);
         
-        // Extract skills and requirements using Gemini
-        const skillsAndRequirements = await geminiService.extractSkillsAndRequirements(inputText);
-        console.log('Extracted skills:', skillsAndRequirements);
-        
-        // Get recommendations using Gemini
-        recommendations = await geminiService.recommendAssessments(
-          skillsAndRequirements, 
-          assessments, 
-          parsedTimeLimit
-        );
+        if (recommendations && recommendations.length > 0) {
+          method = 'rag';
+          console.log(`Found ${recommendations.length} recommendations using RAG approach`);
+        } else {
+          console.log('No recommendations found using RAG, falling back to Gemini...');
+        }
+      } catch (error) {
+        console.error('Error using RAG service:', error);
+        console.log('Falling back to Gemini API...');
       }
-    } catch (error) {
-      console.error('Error using Gemini API:', error);
-      console.log('Falling back to keyword-based recommendations...');
     }
     
-    // If Gemini API failed or returned no recommendations, fall back to keyword-based approach
+    // If RAG failed or is not available, try Gemini API
+    if (!recommendations || recommendations.length === 0) {
+      try {
+        if (inputText.length > 20) { // Only use Gemini for substantial queries
+          console.log('Using Gemini API for recommendations...');
+          
+          // Extract skills and requirements using Gemini
+          const skillsAndRequirements = await geminiService.extractSkillsAndRequirements(inputText);
+          console.log('Extracted skills:', skillsAndRequirements);
+          
+          // Get recommendations using Gemini
+          recommendations = await geminiService.recommendAssessments(
+            skillsAndRequirements, 
+            assessments, 
+            parsedTimeLimit
+          );
+          
+          if (recommendations && recommendations.length > 0) {
+            method = 'ai';
+          }
+        }
+      } catch (error) {
+        console.error('Error using Gemini API:', error);
+        console.log('Falling back to keyword-based recommendations...');
+      }
+    }
+    
+    // If both RAG and Gemini failed, fall back to keyword-based approach
     if (!recommendations || recommendations.length === 0) {
       recommendations = getRecommendations(inputText, parsedTimeLimit);
+      method = 'keyword';
     }
     
     // Return recommendations
@@ -133,7 +179,7 @@ app.post('/recommend', async (req, res) => {
       query: inputText,
       timeLimit: parsedTimeLimit,
       recommendations,
-      method: recommendations.some(r => r.explanation) ? 'ai' : 'keyword'
+      method
     });
     
   } catch (error) {

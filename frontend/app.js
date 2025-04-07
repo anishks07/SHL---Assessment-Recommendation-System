@@ -9,8 +9,8 @@ const resultsTable = document.getElementById('results-table');
 const resultsBody = document.getElementById('results-body');
 const noResults = document.getElementById('no-results');
 
-// API endpoint - update this to your actual backend URL when deployed
-const API_ENDPOINT = 'http://localhost:3000/recommend';
+// API endpoint - points to the deployed backend
+const API_ENDPOINT = 'https://shl-assessment-recommendation-system.vercel.app/api/recommend';
 
 // Event Listeners
 queryForm.addEventListener('submit', handleFormSubmit);
@@ -53,11 +53,36 @@ async function handleFormSubmit(event) {
       timeLimit: parseInt(timeLimit.value)
     };
     
-    // Use mock data instead of calling the API
-    const data = getMockRecommendations(requestData);
-    
-    // Display the recommendations
-    displayResults(data.recommendations, true);
+    // Call the backend API
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      // Display the recommendations
+      if (data && data.recommendations && Array.isArray(data.recommendations)) {
+        displayResults(data.recommendations, data.method === 'ai');
+      } else {
+        // Fallback to mock data if API response is invalid
+        const mockData = getMockRecommendations(requestData);
+        displayResults(mockData.recommendations, true);
+      }
+    } catch (error) {
+      console.error('API Error:', error);
+      // Fallback to mock data if API call fails
+      const mockData = getMockRecommendations(requestData);
+      displayResults(mockData.recommendations, true);
+    }
     
   } catch (error) {
     console.error('Error:', error);
