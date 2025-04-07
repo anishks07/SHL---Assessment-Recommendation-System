@@ -34,8 +34,13 @@ app.get('/', (req, res) => {
 // Import Gemini service
 import GeminiService from './services/geminiService.mjs';
 
-// Initialize Gemini service with API key
-const GEMINI_API_KEY = 'AIzaSyDsSdTw-LIZzetLmB0N36WcF406BZHTyqw';
+// Initialize Gemini service with API key from environment variables
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+if (!GEMINI_API_KEY) {
+  console.error("FATAL ERROR: GEMINI_API_KEY environment variable is not set.");
+  // Optionally exit or handle the absence of the key gracefully
+  // For now, we'll let the GeminiService handle the potential undefined key
+}
 const geminiService = new GeminiService(GEMINI_API_KEY);
 
 // Recommendation endpoint

@@ -2,6 +2,11 @@
 
 An AI-powered web application that recommends SHL assessments based on job descriptions or natural language queries.
 
+## Live Demo
+
+- **Frontend**: [https://shl-assessment-recommendation-system.vercel.app](https://shl-assessment-recommendation-system.vercel.app)
+- **API Endpoint**: [https://shl-assessment-recommendation-system.vercel.app/api/recommend](https://shl-assessment-recommendation-system.vercel.app/api/recommend)
+
 ## Overview
 
 The SHL Assessment Recommendation System helps hiring managers find the right assessments for their job roles. Using Google's Gemini API, the system analyzes natural language queries or job descriptions and recommends the most relevant SHL assessments.
@@ -78,13 +83,19 @@ shl-assessment-recommender/
 
 For detailed API documentation, see [API Docs](docs/api/api-docs.md).
 
-### API Endpoint
+### API Endpoints
 
+#### Vercel Deployment
+```
+https://shl-assessment-recommendation-system.vercel.app/api/recommend
+```
+
+#### Alternative Render Deployment
 ```
 https://shl-recommender-api.onrender.com/api/recommend
 ```
 
-This endpoint accepts POST requests with JSON payloads containing queries or job descriptions and returns relevant SHL assessment recommendations.
+Both endpoints accept POST requests with JSON payloads containing queries or job descriptions and return relevant SHL assessment recommendations.
 
 ## Implementation Details
 
