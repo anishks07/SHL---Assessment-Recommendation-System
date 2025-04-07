@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Verify Interactive - Numerical Reasoning",
+    "url": "https://www.shl.com/solutions/products/verify-interactive-numerical-reasoning/",
+    "remote_testing": true,
+    "adaptive_support": true,
+    "duration": "18 minutes",
+    "test_type": "Cognitive Ability",
+    "description": "Measures numerical reasoning ability through interactive problem-solving scenarios. Candidates analyze data, interpret charts and graphs, and solve numerical problems in a business context."
+  },
+  {
+    "name": "Verify Interactive - Verbal Reasoning",
+    "url": "https://www.shl.com/solutions/products/verify-interactive-verbal-reasoning/",
+    "remote_testing": true,
+    "adaptive_support": true,
+    "duration": "15 minutes",
+    "test_type": "Cognitive Ability",
+    "description": "Assesses verbal reasoning skills through interactive scenarios. Candidates evaluate written arguments, draw logical conclusions, and interpret complex text passages."
+  },
+  {
+    "name": "Verify G+ Cognitive Ability",
+    "url": "https://www.shl.com/solutions/products/verify-g-plus/",
+    "remote_testing": true,
+    "adaptive_support": true,
+    "duration": "24 minutes",
+    "test_type": "Cognitive Ability",
+    "description": "Comprehensive cognitive ability assessment measuring multiple dimensions including numerical, verbal, and logical reasoning. Provides a holistic view of a candidate's general mental ability."
+  },
+  {
+    "name": "Verify - Java",
+    "url": "https://www.shl.com/solutions/products/verify-coding/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "30 minutes",
+    "test_type": "Technical Skills",
+    "description": "Assesses Java programming skills through coding challenges. Candidates solve real-world programming problems, demonstrating knowledge of Java syntax, object-oriented programming concepts, and problem-solving abilities."
+  },
+  {
+    "name": "Verify - Python",
+    "url": "https://www.shl.com/solutions/products/verify-coding/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "30 minutes",
+    "test_type": "Technical Skills",
+    "description": "Evaluates Python programming proficiency through practical tasks. Candidates demonstrate knowledge of Python syntax, data structures, algorithms, and ability to write efficient code."
+  },
+  {
+    "name": "Verify - JavaScript",
+    "url": "https://www.shl.com/solutions/products/verify-coding/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "30 minutes",
+    "test_type": "Technical Skills",
+    "description": "Tests JavaScript programming abilities with real-world problems. Candidates demonstrate knowledge of JavaScript syntax, DOM manipulation, asynchronous programming, and front-end development concepts."
+  },
+  {
+    "name": "Verify - SQL",
+    "url": "https://www.shl.com/solutions/products/verify-coding/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "25 minutes",
+    "test_type": "Technical Skills",
+    "description": "Measures SQL query writing and database knowledge. Candidates demonstrate ability to write complex queries, join tables, aggregate data, and solve database problems efficiently."
+  },
+  {
+    "name": "Full Stack Developer Assessment",
+    "url": "https://www.shl.com/solutions/products/verify-coding/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "60 minutes",
+    "test_type": "Technical Skills",
+    "description": "Comprehensive assessment for full stack developers covering front-end (HTML, CSS, JavaScript) and back-end (Node.js, Python, or Java) technologies, along with database skills and API development."
+  },
+  {
+    "name": "Workplace Personality Inventory",
+    "url": "https://www.shl.com/solutions/products/workplace-personality-inventory/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "35 minutes",
+    "test_type": "Personality",
+    "description": "Comprehensive personality assessment for workplace behaviors. Measures key traits related to work style, interpersonal approach, thinking style, and emotional resilience in professional contexts."
+  },
+  {
+    "name": "Occupational Personality Questionnaire",
+    "url": "https://www.shl.com/solutions/products/occupational-personality-questionnaire/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "45 minutes",
+    "test_type": "Personality",
+    "description": "Detailed personality profile for workplace performance. Measures 32 dimensions across relationships with people, thinking style, feelings and emotions, and approach to work."
+  },
+  {
+    "name": "Situational Judgement Test",
+    "url": "https://www.shl.com/solutions/products/situational-judgement/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "30 minutes",
+    "test_type": "Behavioral",
+    "description": "Evaluates decision-making in workplace scenarios. Candidates respond to realistic work situations, demonstrating judgment, problem-solving, and alignment with organizational values."
+  },
+  {
+    "name": "Teamwork Styles Assessment",
+    "url": "https://www.shl.com/solutions/products/teamwork-styles/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "20 minutes",
+    "test_type": "Behavioral",
+    "description": "Assesses collaboration styles and team effectiveness. Measures how individuals contribute to teams, resolve conflicts, communicate, and collaborate with others in workplace settings."
+  },
+  {
+    "name": "Leadership Assessment",
+    "url": "https://www.shl.com/solutions/products/leadership-assessment/",
+    "remote_testing": true,
+    "adaptive_support": true,
+    "duration": "40 minutes",
+    "test_type": "Leadership",
+    "description": "Evaluates leadership potential and competencies. Measures strategic thinking, people management, change management, and other key leadership capabilities."
+  },
+  {
+    "name": "Analytical Reasoning Assessment",
+    "url": "https://www.shl.com/solutions/products/analytical-reasoning/",
+    "remote_testing": true,
+    "adaptive_support": true,
+    "duration": "25 minutes",
+    "test_type": "Cognitive Ability",
+    "description": "Measures analytical thinking and problem-solving abilities. Candidates analyze complex information, identify patterns, and draw logical conclusions from data."
+  },
+  {
+    "name": "Critical Thinking Test",
+    "url": "https://www.shl.com/solutions/products/critical-thinking/",
+    "remote_testing": true,
+    "adaptive_support": true,
+    "duration": "30 minutes",
+    "test_type": "Cognitive Ability",
+    "description": "Assesses ability to evaluate arguments, identify assumptions, and make sound judgments. Measures how candidates analyze information critically and solve complex problems."
+  },
+  {
+    "name": "Communication Skills Assessment",
+    "url": "https://www.shl.com/solutions/products/communication-skills/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "35 minutes",
+    "test_type": "Behavioral",
+    "description": "Evaluates written and verbal communication abilities. Measures clarity, persuasiveness, active listening, and ability to adapt communication style to different audiences."
+  },
+  {
+    "name": "Customer Service Aptitude",
+    "url": "https://www.shl.com/solutions/products/customer-service-aptitude/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "25 minutes",
+    "test_type": "Behavioral",
+    "description": "Assesses customer service orientation and skills. Measures empathy, problem-solving, patience, and ability to handle difficult customer interactions effectively."
+  },
+  {
+    "name": "Sales Potential Assessment",
+    "url": "https://www.shl.com/solutions/products/sales-potential/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "30 minutes",
+    "test_type": "Behavioral",
+    "description": "Evaluates sales aptitude and potential. Measures persuasiveness, resilience, goal orientation, and other traits associated with successful sales professionals."
+  },
+  {
+    "name": "Remote Work Readiness Assessment",
+    "url": "https://www.shl.com/solutions/products/remote-work-readiness/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "20 minutes",
+    "test_type": "Behavioral",
+    "description": "Assesses ability to work effectively in remote environments. Measures self-discipline, communication skills, digital literacy, and ability to collaborate virtually."
+  },
+  {
+    "name": "Agile Mindset Assessment",
+    "url": "https://www.shl.com/solutions/products/agile-mindset/",
+    "remote_testing": true,
+    "adaptive_support": false,
+    "duration": "25 minutes",
+    "test_type": "Behavioral",
+    "description": "Evaluates alignment with agile principles and practices. Measures adaptability, collaboration, continuous improvement mindset, and comfort with iterative work approaches."
+  }
+]

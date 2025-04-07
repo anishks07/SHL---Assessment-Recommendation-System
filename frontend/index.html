@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHL Assessment Recommender</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>SHL Assessment Recommendation System</h1>
+    <p>Find the perfect assessments for your hiring needs</p>
+  </header>
+  
+  <main>
+    <section class="input-section card">
+      <h2><i class="fas fa-search"></i> Find Relevant Assessments</h2>
+      
+      <form id="query-form">
+        <div class="input-group">
+          <label for="query-text">Natural Language Query:</label>
+          <input type="text" id="query-text" placeholder="e.g., Java developers who can collaborate effectively">
+        </div>
+        
+        <div class="input-group">
+          <label for="job-url">Job Description URL (optional):</label>
+          <input type="url" id="job-url" placeholder="https://example.com/job-description">
+        </div>
+        
+        <div class="input-group">
+          <label for="job-text">Job Description Text (optional):</label>
+          <textarea id="job-text" rows="5" placeholder="Paste job description here..."></textarea>
+        </div>
+        
+        <div class="input-group">
+          <label for="time-limit">Maximum Assessment Duration (minutes):</label>
+          <div class="range-container">
+            <input type="range" id="time-limit-range" min="10" max="120" value="60" step="5">
+            <input type="number" id="time-limit" min="10" max="120" value="60">
+          </div>
+        </div>
+        
+        <button type="submit"><i class="fas fa-bolt"></i> Get Recommendations</button>
+      </form>
+    </section>
+    
+    <section class="results-section card" id="results-container">
+      <div class="results-header">
+        <h2><i class="fas fa-clipboard-list"></i> Recommended Assessments</h2>
+        <div class="ai-badge" id="ai-badge"><i class="fas fa-robot"></i> AI-Powered</div>
+      </div>
+      
+      <!-- Loading and error elements removed as requested -->
+      
+      <div class="results-wrapper">
+        <table id="results-table" class="hidden">
+          <thead>
+            <tr>
+              <th>Assessment Name</th>
+              <th>Remote Testing</th>
+              <th>Adaptive Support</th>
+              <th>Duration</th>
+              <th>Test Type</th>
+            </tr>
+          </thead>
+          <tbody id="results-body">
+            <!-- Results will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="no-results" class="hidden">
+        <p>No matching assessments found. Try adjusting your query.</p>
+      </div>
+      
+      <div class="results-footer">
+        <div class="metrics-info">
+          <span><i class="fas fa-chart-line"></i> Intelligent Assessment Recommendations</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 SHL Assessment Recommendation System - Developed by Anish Sai .K.T</p>
+  </footer>
+  
+  <script src="app.js"></script>
+</body>
+</html>
